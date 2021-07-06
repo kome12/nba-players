@@ -4,6 +4,7 @@
   "description": "List of active NBA players",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "@prisma/client": "^2.26.0",
     "apollo-server": "^2.25.2",
     "express": "^4.17.1",
-    "graphql": "^15.5.1"
+    "graphql": "^15.5.1",
+    "graphql-scalars": "^1.10.0"
   }
 }

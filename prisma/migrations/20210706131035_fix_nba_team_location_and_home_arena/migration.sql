@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "NBATeam" ALTER COLUMN "location" DROP NOT NULL,
+ALTER COLUMN "homeArena" DROP NOT NULL;
