@@ -20,7 +20,7 @@
     "prisma:reset": "npx prisma reset",
     "prisma:seed": "npx prisma db seed --preview-feature",
     "prisma:generate": "npx prisma generate",
-    "heroku-postbuild": "npx prisma db push",
+    "heroku-postbuild": "npx prisma db push && npm run prisma:seed",
     "test": "jest"
   },
   "repository": {

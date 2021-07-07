@@ -32,18 +32,27 @@ export async function seed() {
         where: { name: playerData.team },
       });
     }
-    const newPlayer: PlayerCreateInput = <PlayerCreateInput>{
-      firstName: playerData.firstName,
-      lastName: playerData.lastName,
-      height: playerData.height,
-      weight: playerData.weight,
-      currentTeamId: team ? team.id : null,
-    };
-    await prisma.player.create({
-      data: {
-        ...newPlayer,
+    const existingPlayer = await prisma.player.findFirst({
+      where: {
+        firstName: playerData.firstName,
+        lastName: playerData.lastName,
+        currentTeamId: team ? team.id : undefined,
       },
     });
+    if (!existingPlayer) {
+      const newPlayer: PlayerCreateInput = <PlayerCreateInput>{
+        firstName: playerData.firstName,
+        lastName: playerData.lastName,
+        height: playerData.height,
+        weight: playerData.weight,
+        currentTeamId: team ? team.id : null,
+      };
+      await prisma.player.create({
+        data: {
+          ...newPlayer,
+        },
+      });
+    }
   }
   prisma.$disconnect();
 }
