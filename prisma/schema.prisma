@@ -16,18 +16,17 @@ model Player {
   updatedAt DateTime @updatedAt
   firstName String @db.VarChar(255)
   lastName String @db.VarChar(255)
-  height Int
-  weight Int
-  currentTeam NBATeam @relation(fields: [currentTeamId], references: [id])
+  height Int?
+  weight Int?
+  dateOfBirth DateTime?
+  currentTeam Team? @relation(fields: [currentTeamId], references: [id])
   currentTeamId Int
 }
 
-model NBATeam {
+model Team {
   id Int @default(autoincrement()) @id
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  name String @db.VarChar(255)
-  location String? @db.VarChar(255)
-  homeArena String? @db.VarChar(255)
+  name String @unique @db.VarChar(255)
   players Player[]
 }

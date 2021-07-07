@@ -1,0 +1,79 @@
+[
+  {
+    "firstName": "Lebron",
+    "lastName": "James",
+    "height": 203,
+    "weight": 113,
+    "team": "Los Angeles Lakers"
+  },
+  {
+    "firstName": "Giannis",
+    "lastName": "Antetokounmpo",
+    "height": 211,
+    "weight": 110,
+    "team": "Milwaukee Bucks"
+  },
+  {
+    "firstName": "Stephen",
+    "lastName": "Curry",
+    "height": 191,
+    "weight": 86,
+    "team": "Golden State Warriors"
+  },
+  {
+    "firstName": "Luka",
+    "lastName": "Doncic",
+    "height": 201,
+    "weight": 104,
+    "team": "Dallas Mavericks"
+  },
+  {
+    "firstName": "Nikola",
+    "lastName": "Jokic",
+    "height": 211,
+    "weight": 129,
+    "team": "Denver Nuggets"
+  },
+  {
+    "firstName": "Kevin",
+    "lastName": "Durant",
+    "height": 208,
+    "weight": 109,
+    "team": "Brooklyn Nets"
+  },
+  {
+    "firstName": "Bradley",
+    "lastName": "Beal",
+    "height": 191,
+    "weight": 94,
+    "team": "Washington Wizards"
+  },
+  {
+    "firstName": "Kyrie",
+    "lastName": "Irving",
+    "height": 188,
+    "weight": 88,
+    "team": "Brooklyn Nets"
+  },
+  {
+    "firstName": "Kawhi",
+    "lastName": "Leonard",
+    "height": 201,
+    "weight": 102,
+    "team": "Los Angeles Clippers"
+  },
+  {
+    "firstName": "Jayson",
+    "lastName": "Tatum",
+    "height": 203,
+    "weight": 95,
+    "team": "Boston Celtics"
+  },
+  {
+    "firstName": "Zion",
+    "lastName": "Williamson",
+    "height": 201,
+    "weight": 129,
+    "team": "New Orleans Pelicans"
+  }
+]

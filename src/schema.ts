@@ -2,7 +2,7 @@ import { gql } from "apollo-server";
 
 export const typeDefs = gql`
   type Player {
-    id: ID
+    id: Int
     firstName: String
     lastName: String
     height: Int
@@ -13,7 +13,7 @@ export const typeDefs = gql`
   }
 
   type Team {
-    id: ID
+    id: Int
     name: String
     location: String
     homeArena: String
@@ -21,16 +21,25 @@ export const typeDefs = gql`
 
   type Query {
     allPlayers: [Player]
-    player(id: ID!): Player
+    player(id: Int!): Player
     teams: [Team]
     team(id: ID!): Team
+    teamByName(name: String!): Team
   }
 
   input PlayerCreateInput {
     firstName: String!
     lastName: String!
-    height: Int!
-    weight: Int!
+    height: Int
+    weight: Int
+    currentTeamId: Int
+  }
+
+  input PlayerUpdateInput {
+    firstName: String!
+    lastName: String!
+    height: Int
+    weight: Int
     currentTeamId: Int
   }
 
@@ -40,9 +49,19 @@ export const typeDefs = gql`
     homeArena: String
   }
 
+  input TeamUpdateInput {
+    name: String!
+    locaton: String
+    homeArena: String
+  }
+
   type Mutation {
     createPlayer(data: PlayerCreateInput): Player
+    updatePlayer(id: Int, data: PlayerUpdateInput): Player
+    deletePlayer(id: Int): Player
     createTeam(data: TeamCreateInput): Team
+    updateTeam(id: Int, data: TeamUpdateInput): Team
+    deleteTeam(id: Int): Team
   }
 
   scalar DateTime
