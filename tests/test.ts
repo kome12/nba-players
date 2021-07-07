@@ -11,6 +11,7 @@ const schema = makeExecutableSchema({
 describe("Player Schema", () => {
   test("test", () => {
     expect(true).toBeTruthy();
+    expect(false).toBeFalsy();
   });
   // test("allPlayers query", async () => {
   //   const query = `
