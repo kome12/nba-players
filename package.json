@@ -19,6 +19,8 @@
     "start": "ts-node src/server.ts",
     "prisma:reset": "npx prisma reset",
     "prisma:seed": "npx prisma db seed --preview-feature",
+    "prisma:generate": "npx prisma generate",
+    "heroku-postbuild": "npx prisma db push",
     "test": "jest"
   },
   "repository": {
