@@ -35,20 +35,20 @@
   "homepage": "https://github.com/kome12/nba-players#readme",
   "devDependencies": {
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.0.0",
     "jest": "^27.0.6",
     "nodemon": "^2.0.9",
-    "prisma": "^2.26.0",
     "randomstring": "^1.2.1",
-    "ts-jest": "^27.0.3",
-    "typescript": "^4.3.5"
+    "ts-jest": "^27.0.3"
   },
   "dependencies": {
     "@prisma/client": "^2.26.0",
+    "@types/node": "^16.0.0",
     "apollo-server": "^2.25.2",
     "express": "^4.17.1",
     "graphql": "^15.5.1",
     "graphql-scalars": "^1.10.0",
-    "ts-node": "^10.0.0"
+    "prisma": "^2.26.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5"
   }
 }
