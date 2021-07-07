@@ -10,7 +10,12 @@ export const schema = makeExecutableSchema({
   typeDefs,
 });
 
-new ApolloServer({ schema, context: context }).listen({ port: port }, () =>
+new ApolloServer({
+  schema,
+  context: context,
+  playground: true,
+  introspection: true,
+}).listen({ port: port }, () =>
   console.log(`
 🚀 Server ready at: http://localhost:${port}`)
 );
