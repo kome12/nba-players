@@ -123,7 +123,7 @@ Create a NBA / basketball player
 
 **Return Type**: [Player](https://github.com/kome12/nba-players#player)
 
-**Input**: (data: PlayerCreateInput!)
+**Input**: (data: [PlayerCreateInput](https://github.com/kome12/nba-players#playercreateinput)!)
 
 ---
 
@@ -133,7 +133,7 @@ Update a NBA / basketball player by id
 
 **Return Type**: [Player](https://github.com/kome12/nba-players#player)
 
-**Input**: (id: Int!, data: PlayerUpdateInput!)
+**Input**: (id: Int!, data: [PlayerUpdateInput](https://github.com/kome12/nba-players#playerupdateinput)!)
 
 ---
 
@@ -153,7 +153,7 @@ Create a NBA / basketball team
 
 **Return Type**: [Team](https://github.com/kome12/nba-players#team)
 
-**Input**: (data: TeamCreateInput!)
+**Input**: (data: [TeamCreateInput](https://github.com/kome12/nba-players#teamcreateinput)!)
 
 ---
 
@@ -163,7 +163,7 @@ Update a NBA / basketball team by id
 
 **Return Type**: [Team](https://github.com/kome12/nba-players#team)
 
-**Input**: (id: Int!, data: TeamUpdateInput!)
+**Input**: (id: Int!, data: [TeamUpdateInput](https://github.com/kome12/nba-players#teamupdateinput)!)
 
 ---
 
@@ -189,6 +189,8 @@ Delete a NBA / basketball Team
 | weight        | Int    | Player's weight in kilograms   |
 | currentTeamId | Int    | Player's current team's id     |
 
+---
+
 ### PlayerUpdateInput
 
 | Field         | Type   | Description                    |
@@ -199,6 +201,8 @@ Delete a NBA / basketball Team
 | weight        | Int    | Player's weight in kilograms   |
 | currentTeamId | Int    | Player's current team's id     |
 
+---
+
 ### TeamCreateInput
 
 | Field        | Type   | Description                 |
@@ -206,6 +210,8 @@ Delete a NBA / basketball Team
 | name!        | String | Team name                   |
 | abbreviation | String | Team abbreviation (eg: LAL) |
 | homeArena    | String | Name of home arena          |
+
+---
 
 ### TeamUpdateInput
 
