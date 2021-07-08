@@ -18,7 +18,7 @@
     "dev": "dotenv -e .env nodemon src/server.ts",
     "start": "ts-node src/server.ts",
     "prisma:reset": "dotenv -e .env npx prisma reset",
-    "prisma:seed": "dotenv -e .env npx prisma db seed --preview-feature",
+    "prisma:seed": "npx prisma db seed --preview-feature",
     "prisma:generate": "dotenv -e .env npx prisma generate",
     "heroku-postbuild": "npx prisma db push && npm run prisma:seed",
     "prisma:deploy": "npx prisma migrate deploy",
