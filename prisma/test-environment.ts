@@ -33,15 +33,11 @@ class PrismaTestEnvironment extends NodeEnvironment {
   }
   async teardown() {
     // Drop the schema after the tests have completed
-    console.log("inside teardown");
     await this.client.$executeRaw(
       `drop schema if exists "${this.schema}" cascade`
     );
-    console.log("finished executeRaw");
     await this.client.$disconnect();
-    console.log("finished client disconnect");
     await super.teardown();
-    console.log("finished super.teardown");
   }
 }
 module.exports = PrismaTestEnvironment;
