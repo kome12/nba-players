@@ -22,10 +22,10 @@ describe("Player Schema", () => {
     await context.prisma.$disconnect();
   });
 
-  test("allPlayers query", async () => {
-    const getAllPlayers = gql`
-      query allPlayers {
-        allPlayers {
+  test("players query", async () => {
+    const getplayers = gql`
+      query players {
+        players {
           id
           firstName
           lastName
@@ -36,8 +36,8 @@ describe("Player Schema", () => {
     const { server } = constructTestServer({
       context,
     });
-    const res = await server.executeOperation({ query: getAllPlayers });
-    expect(res.data?.allPlayers.length).toBe(1);
+    const res = await server.executeOperation({ query: getplayers });
+    expect(res.data?.players.length).toBe(1);
     await server.stop();
   });
 });

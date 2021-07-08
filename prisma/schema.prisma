@@ -28,5 +28,6 @@ model Team {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name String @unique @db.VarChar(255)
+  abbreviation String? @db.VarChar(255)
   players Player[]
 }

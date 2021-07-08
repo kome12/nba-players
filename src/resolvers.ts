@@ -9,7 +9,7 @@ import {
 
 export const resolvers = {
   Query: {
-    allPlayers: (parent: any, args: any, context: Context) => {
+    players: (parent: any, args: any, context: Context) => {
       return context.prisma.player.findMany({
         include: {
           currentTeam: true,
@@ -40,6 +40,13 @@ export const resolvers = {
     },
     team: (parent: any, args: { id: number }, context: Context) => {
       return context.prisma.team.findUnique({ where: { id: args.id } });
+    },
+    teams: (parent: any, args: {}, context: Context) => {
+      return context.prisma.team.findMany({
+        include: {
+          players: true,
+        },
+      });
     },
     teamByName: (parent: any, args: { name: string }, context: Context) => {
       return context.prisma.team.findUnique({

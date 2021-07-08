@@ -6,14 +6,6 @@ const prisma = new PrismaClient();
 
 export async function seed() {
   for await (const teamData of teamsData) {
-    // await prisma.team.upsert({
-    //   where: {
-    //     name: teamData.name,
-    //   },
-    //   create: {
-    //     name: teamData.name,
-    //   },
-    // });
     await prisma.team.upsert({
       where: {
         name: teamData.name,
