@@ -103,8 +103,8 @@ export const typeDefs = gql`
   }
 
   input PlayerUpdateInput {
-    firstName: String!
-    lastName: String!
+    firstName: String
+    lastName: String
     height: Int
     weight: Int
     currentTeamId: Int
@@ -117,7 +117,7 @@ export const typeDefs = gql`
   }
 
   input TeamUpdateInput {
-    name: String!
+    name: String
     abbreviation: String
     homeArena: String
   }

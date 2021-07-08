@@ -7,6 +7,7 @@ export interface Player {
   weight?: number;
   currentTeam?: Team;
   currentTeamId?: number;
+  dateOfBirth?: Date;
   createdAt?: Date;
   updatedAt?: Date;
 }

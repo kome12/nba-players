@@ -21,7 +21,7 @@
     "prisma:seed": "npx prisma db seed --preview-feature",
     "prisma:generate": "npx prisma generate",
     "heroku-postbuild": "npx prisma db push && npm run prisma:seed",
-    "test": "jest",
+    "test": "jest -i",
     "test:watch": "jest --verbose --detectOpenHandles",
     "prisma:deploy": "npx prisma migrate deploy"
   },
@@ -40,6 +40,7 @@
     "@types/randomstring": "^1.1.7",
     "apollo-server-testing": "^2.25.2",
     "jest": "^27.0.6",
+    "jest-mock-extended": "^1.0.16",
     "nodemon": "^2.0.9",
     "randomstring": "^1.2.1",
     "ts-jest": "^27.0.3"
