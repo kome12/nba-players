@@ -39,7 +39,7 @@ class PrismaTestEnvironment extends NodeEnvironment {
       `drop schema if exists "${this.schema}" cascade`
     );
     await this.client.$disconnect();
-    return super.teardown();
+    await super.teardown();
   }
 }
 module.exports = PrismaTestEnvironment;

@@ -1,5 +1,4 @@
 import { ApolloServer } from "apollo-server";
-import { Context } from "../src/context";
 import { schema } from "./../src/server";
 
 export const constructTestServer = ({ context = {} } = {}): {
@@ -11,12 +10,4 @@ export const constructTestServer = ({ context = {} } = {}): {
   });
 
   return { server };
-};
-
-export const destroyTestServer = async (
-  context: Context,
-  server: ApolloServer
-): Promise<void> => {
-  await context.prisma.$disconnect();
-  await server.stop();
 };
