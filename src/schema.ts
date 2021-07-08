@@ -17,14 +17,17 @@ export const typeDefs = gql`
     name: String
     location: String
     homeArena: String
+    players: [Player]
   }
 
   type Query {
     allPlayers: [Player]
     player(id: Int!): Player
+    playersOnTeamByTeamId(id: Int!): [Player]
     teams: [Team]
-    team(id: ID!): Team
+    team(id: Int!): Team
     teamByName(name: String!): Team
+    teamWithPlayers(id: Int!): Team
   }
 
   input PlayerCreateInput {

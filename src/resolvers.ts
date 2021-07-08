@@ -27,10 +27,34 @@ export const resolvers = {
       });
       return player;
     },
+    playersOnTeamByTeamId: (
+      parent: any,
+      args: { id: number },
+      context: Context
+    ) => {
+      return context.prisma.player.findMany({
+        where: {
+          currentTeamId: args.id,
+        },
+      });
+    },
+    team: (parent: any, args: { id: number }, context: Context) => {
+      return context.prisma.team.findUnique({ where: { id: args.id } });
+    },
     teamByName: (parent: any, args: { name: string }, context: Context) => {
       return context.prisma.team.findUnique({
         where: {
           name: args.name,
+        },
+      });
+    },
+    teamWithPlayers: (parent: any, args: { id: number }, context: Context) => {
+      return context.prisma.team.findUnique({
+        where: {
+          id: args.id,
+        },
+        include: {
+          players: true,
         },
       });
     },
