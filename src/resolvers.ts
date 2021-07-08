@@ -29,12 +29,12 @@ export const resolvers = {
     },
     playersOnTeamByTeamId: (
       parent: any,
-      args: { id: number },
+      args: { teamId: number },
       context: Context
     ) => {
       return context.prisma.player.findMany({
         where: {
-          currentTeamId: args.id,
+          currentTeamId: args.teamId,
         },
       });
     },

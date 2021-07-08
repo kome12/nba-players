@@ -75,7 +75,7 @@ export const typeDefs = gql`
     """
     Get NBA / basketball players by team id
     """
-    playersOnTeamByTeamId(id: Int!): [Player]
+    playersOnTeamByTeamId(teamId: Int!): [Player]
     """
     Get all NBA / basketball team
     """
@@ -113,24 +113,40 @@ export const typeDefs = gql`
   input TeamCreateInput {
     name: String!
     abbreviation: String
-    location: String
     homeArena: String
   }
 
   input TeamUpdateInput {
     name: String!
     abbreviation: String
-    locaton: String
     homeArena: String
   }
 
   type Mutation {
-    createPlayer(data: PlayerCreateInput): Player
-    updatePlayer(id: Int, data: PlayerUpdateInput): Player
-    deletePlayer(id: Int): Player
-    createTeam(data: TeamCreateInput): Team
-    updateTeam(id: Int, data: TeamUpdateInput): Team
-    deleteTeam(id: Int): Team
+    """
+    Create a NBA / basketball player
+    """
+    createPlayer(data: PlayerCreateInput!): Player
+    """
+    Update a NBA / basketball player by id
+    """
+    updatePlayer(id: Int!, data: PlayerUpdateInput!): Player
+    """
+    Delete a NBA / basketball player by id
+    """
+    deletePlayer(id: Int!): Player
+    """
+    Create a NBA / basketball team
+    """
+    createTeam(data: TeamCreateInput!): Team
+    """
+    Update a NBA / basketball team by id
+    """
+    updateTeam(id: Int!, data: TeamUpdateInput!): Team
+    """
+    Delete a NBA / basketball Team
+    """
+    deleteTeam(id: Int!): Team
   }
 
   scalar DateTime
