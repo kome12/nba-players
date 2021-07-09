@@ -1,4 +1,4 @@
-import { createPlayer } from "./player.functions";
+import { createPlayer, updatePlayer } from "./player.functions";
 import { Context, createMockContext, MockContext } from "./test-context";
 
 let mockCtx: MockContext;
@@ -38,6 +38,37 @@ test("should create new player ", async () => {
     height: 203,
     weight: 113,
     currentTeamId: 1,
+    createdAt: dateToUse,
+    updatedAt: dateToUse,
+    dateOfBirth: dateToUse,
+  });
+});
+
+test("should update a player", async () => {
+  const dateToUse = new Date();
+  const testPlayer = {
+    id: 1,
+    firstName: "LeBron",
+    lastName: "James",
+    height: 203,
+    weight: 113,
+    currentTeamId: 2,
+    createdAt: dateToUse,
+    updatedAt: dateToUse,
+    dateOfBirth: dateToUse,
+  };
+  const player = {
+    currentTeamId: 2,
+  };
+  mockCtx.prisma.player.update.mockResolvedValue(testPlayer);
+
+  await expect(updatePlayer(1, player, ctx)).resolves.toEqual({
+    id: 1,
+    firstName: "LeBron",
+    lastName: "James",
+    height: 203,
+    weight: 113,
+    currentTeamId: 2,
     createdAt: dateToUse,
     updatedAt: dateToUse,
     dateOfBirth: dateToUse,

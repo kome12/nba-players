@@ -15,17 +15,17 @@ export interface Player {
 export interface PlayerCreateInput {
   firstName: string;
   lastName: string;
-  height: number;
-  weight: number;
-  currentTeamId: number;
+  height?: number;
+  weight?: number;
+  currentTeamId?: number;
 }
 
 export interface PlayerUpdateInput {
-  firstName: string;
-  lastName: string;
-  height: number;
-  weight: number;
-  currentTeamId: number;
+  firstName?: string;
+  lastName?: string;
+  height?: number;
+  weight?: number;
+  currentTeamId?: number;
 }
 
 // TEAM
