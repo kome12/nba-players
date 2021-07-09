@@ -66,13 +66,8 @@ describe("NBA API", () => {
         }
       `;
 
-      // const { server } = constructTestServer({
-      //   context,
-      // });
-      // const server = testServer(context);
       const res = await server.executeOperation({ query: getPlayers });
       expect(res.data?.players.length).toBe(11);
-      // await server.stop();
     });
 
     test("player query", async () => {
@@ -86,17 +81,12 @@ describe("NBA API", () => {
         }
       `;
 
-      // const { server } = constructTestServer({
-      //   context,
-      // });
-
       const res = await server.executeOperation({
         query: getPlayer,
       });
       expect(res.data?.player.id).toBe(1);
       expect(res.data?.player.firstName).toBe("LeBron");
       expect(res.data?.player.lastName).toBe("James");
-      // await server.stop();
     });
 
     test("playersOnTeamByTeamId query", async () => {
@@ -114,6 +104,40 @@ describe("NBA API", () => {
         query: playersOnTeamByTeamId,
       });
       expect(res.data?.playersOnTeamByTeamId.length).toBe(2);
+    });
+
+    test("playersByName query", async () => {
+      const playersByName = gql`
+        query playersByName {
+          playersByName(firstName: "Stephen", lastName: "curry") {
+            id
+            firstName
+            lastName
+          }
+        }
+      `;
+
+      const res = await server.executeOperation({
+        query: playersByName,
+      });
+      expect(res.data?.playersByName.length).toBe(1);
+    });
+
+    test("playersByPartialName query", async () => {
+      const playersByPartialName = gql`
+        query playersByPartialName {
+          playersByPartialName(partialName: "on") {
+            id
+            firstName
+            lastName
+          }
+        }
+      `;
+
+      const res = await server.executeOperation({
+        query: playersByPartialName,
+      });
+      expect(res.data?.playersByPartialName.length).toBe(5);
     });
 
     test("teams query", async () => {

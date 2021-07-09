@@ -38,6 +38,54 @@ export const resolvers = {
         },
       });
     },
+    playersByName: (
+      parent: any,
+      args: { firstName: string; lastName: string },
+      context: Context
+    ) => {
+      return context.prisma.player.findMany({
+        where: {
+          firstName: {
+            contains: args.firstName,
+            mode: "insensitive",
+          },
+          lastName: {
+            contains: args.lastName,
+            mode: "insensitive",
+          },
+        },
+        include: {
+          currentTeam: true,
+        },
+      });
+    },
+    playersByPartialName: (
+      parent: any,
+      args: { partialName: string },
+      context: Context
+    ) => {
+      return context.prisma.player.findMany({
+        where: {
+          OR: [
+            {
+              firstName: {
+                contains: args.partialName,
+                mode: "insensitive",
+              },
+            },
+            {
+              lastName: {
+                contains: args.partialName,
+                mode: "insensitive",
+              },
+            },
+          ],
+        },
+        include: {
+          currentTeam: true,
+        },
+      });
+    },
     team: (parent: any, args: { id: number }, context: Context) => {
       return context.prisma.team.findUnique({ where: { id: args.id } });
     },
@@ -52,6 +100,9 @@ export const resolvers = {
       return context.prisma.team.findUnique({
         where: {
           name: args.name,
+        },
+        include: {
+          players: true,
         },
       });
     },
@@ -76,6 +127,9 @@ export const resolvers = {
         data: {
           ...args.data,
         },
+        include: {
+          currentTeam: true,
+        },
       });
     },
     updatePlayer: (
@@ -90,12 +144,18 @@ export const resolvers = {
         data: {
           ...args.data,
         },
+        include: {
+          currentTeam: true,
+        },
       });
     },
     deletePlayer: (parent: any, args: { id: number }, context: Context) => {
       return context.prisma.player.delete({
         where: {
           id: args.id,
+        },
+        include: {
+          currentTeam: true,
         },
       });
     },
@@ -122,12 +182,18 @@ export const resolvers = {
         data: {
           ...args.data,
         },
+        include: {
+          players: true,
+        },
       });
     },
     deleteTeam: (parent: any, args: { id: number }, context: Context) => {
       return context.prisma.team.delete({
         where: {
           id: args.id,
+        },
+        include: {
+          players: true,
         },
       });
     },

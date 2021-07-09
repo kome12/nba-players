@@ -77,6 +77,14 @@ export const typeDefs = gql`
     """
     playersOnTeamByTeamId(teamId: Int!): [Player]
     """
+    Get NBA / basketball players by name (firstName, lastName)
+    """
+    playersByName(firstName: String!, lastName: String!): [Player]
+    """
+    Get NBA / basketball players by partial name (name in first or last name)
+    """
+    playersByPartialName(partialName: String!): [Player]
+    """
     Get all NBA / basketball team
     """
     teams: [Team]

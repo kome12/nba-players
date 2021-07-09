@@ -75,6 +75,26 @@ Get NBA / basketball players by team id
 
 ---
 
+### playersByName
+
+Get NBA / basketball players by name (firstName, lastName)
+
+**Return Type**: [Player](https://github.com/kome12/nba-players#player)
+
+**Input**: (firstName: String!, lastName: String!)
+
+---
+
+### playersByPartialName
+
+Get NBA / basketball players by partial name (name in first or last name)
+
+**Return Type**: [Player](https://github.com/kome12/nba-players#player)
+
+**Input**: (partialName: String!)
+
+---
+
 ### teams
 
 Get all NBA / basketball team
