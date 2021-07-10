@@ -20,7 +20,7 @@ model Player {
   weight Int?
   dateOfBirth DateTime?
   currentTeam Team? @relation(fields: [currentTeamId], references: [id])
-  currentTeamId Int
+  currentTeamId Int?
 }
 
 model Team {
