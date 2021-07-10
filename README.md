@@ -2,6 +2,8 @@ This was created during my time as a student at [Code Chrysalis](https://www.cod
 
 # NBA Players API
 
+An API that will return NBA players with their current team.
+
 ## To run the app locally
 
 1. `npm install`
