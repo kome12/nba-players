@@ -22,6 +22,7 @@
     "prisma:generate": "dotenv -e .env npx prisma generate",
     "heroku-postbuild": "npx prisma db push && npm run prisma:seed",
     "prisma:deploy": "npx prisma migrate deploy",
+    "prisma:doc-generator": "npx prisma-docs-generator serve",
     "migrate:init": "dotenv -e .env.test npx prisma migrate dev --name init",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker compose down",
@@ -56,6 +57,7 @@
     "graphql": "^15.5.1",
     "graphql-scalars": "^1.10.0",
     "prisma": "^2.26.0",
+    "prisma-docs-generator": "^0.4.0",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
   }

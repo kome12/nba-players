@@ -10,6 +10,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+}
+
 model Player {
   id        Int      @default(autoincrement()) @id
   createdAt DateTime @default(now())
