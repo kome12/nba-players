@@ -125,16 +125,6 @@ Get one NBA / basketball team by name
 
 ---
 
-### teamWithPlayers
-
-Get one NBA / basketball team with players by team id
-
-**Return Type**: [Team](https://github.com/kome12/nba-players#team)
-
-**Input**: (id: Int!)
-
----
-
 ## Mutations
 
 ### createPlayer

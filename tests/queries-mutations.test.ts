@@ -187,29 +187,6 @@ describe("NBA API", () => {
       expect(res.data?.teamByName.id).toBe(23);
       expect(res.data?.teamByName.name).toBe("Los Angeles Lakers");
     });
-
-    test("teamWithPlayers query", async () => {
-      const teamWithPlayers = gql`
-        query teamWithPlayers {
-          teamWithPlayers(id: 2) {
-            id
-            name
-            players {
-              id
-              firstName
-              lastName
-            }
-          }
-        }
-      `;
-
-      const res = await server.executeOperation({
-        query: teamWithPlayers,
-      });
-      expect(res.data?.teamWithPlayers.id).toBe(2);
-      expect(res.data?.teamWithPlayers.name).toBe("Brooklyn Nets");
-      expect(res.data?.teamWithPlayers.players.length).toBe(2);
-    });
   });
 
   describe("mutations", () => {

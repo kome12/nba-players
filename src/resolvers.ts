@@ -36,6 +36,9 @@ export const resolvers = {
         where: {
           currentTeamId: args.teamId,
         },
+        include: {
+          currentTeam: true,
+        },
       });
     },
     playersByName: (
@@ -87,7 +90,10 @@ export const resolvers = {
       });
     },
     team: (parent: any, args: { id: number }, context: Context) => {
-      return context.prisma.team.findUnique({ where: { id: args.id } });
+      return context.prisma.team.findUnique({
+        where: { id: args.id },
+        include: { players: true },
+      });
     },
     teams: (parent: any, args: {}, context: Context) => {
       return context.prisma.team.findMany({
@@ -100,16 +106,6 @@ export const resolvers = {
       return context.prisma.team.findUnique({
         where: {
           name: args.name,
-        },
-        include: {
-          players: true,
-        },
-      });
-    },
-    teamWithPlayers: (parent: any, args: { id: number }, context: Context) => {
-      return context.prisma.team.findUnique({
-        where: {
-          id: args.id,
         },
         include: {
           players: true,

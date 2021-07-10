@@ -96,10 +96,6 @@ export const typeDefs = gql`
     Get one NBA / basketball team by name
     """
     teamByName(name: String!): Team
-    """
-    Get one NBA / basketball team with players by team id
-    """
-    teamWithPlayers(id: Int!): Team
   }
 
   input PlayerCreateInput {
